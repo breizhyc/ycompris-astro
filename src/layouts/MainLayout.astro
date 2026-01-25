@@ -1,0 +1,300 @@
+---
+// src/layouts/MainLayout.astro
+import CookieConsent from '../components/CookieConsent.astro';
+
+const { title = 'Ycompris' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+
+  <!-- Schema JSON-LD de base (Organization) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ycompris",
+      "url": "https://ycompris.bzh",
+      "description": "Conformité ESG simplifiée, information structurée, coûts maîtrisés – avec l’IA pour transformer les obligations en avantage concurrentiel.",
+      "sameAs": ["https://www.linkedin.com/company/ycompris"]
+    }
+  </script>
+
+  <style is:global>
+    :root {
+      --primary: #007A7A;
+      --primary-dark: #005F5F;
+      --accent: #3A8E5A;
+      --text: #1A1A1A;
+      --light: #F8FAFC;
+      --gray: #64748B;
+      --radius: 8px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    h1, h2, h3 {
+      color: var(--primary);
+      line-height: 1.3;
+    }
+
+    /* Header */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo img {
+      max-height: 60px;
+      width: auto;
+      display: block;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    nav a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+
+    /* Boutons */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn--primary {
+      background: white;
+      color: var(--primary);
+    }
+
+    .btn--primary:hover {
+      background: var(--primary-dark);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    /* Hero global avec filigrane subtil */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #e6f4f4 0%, #d9f0f0 100%);
+      padding: 0 0 4rem; /* colle au header */
+      text-align: center;
+      min-height: 300px;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 6rem 0 4rem;
+    }
+
+    .lead {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 1.5rem auto 0;
+    }
+
+    /* Sections et cartes */
+    .section {
+      padding: 6rem 0;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.15rem;
+      border-top: 4px solid var(--primary);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+    }
+
+    /* Bannière cookies */
+    .cm-wrapper .cm-btn {
+      background-color: var(--primary) !important;
+      color: white !important;
+      border-radius: var(--radius) !important;
+    }
+
+    .cm-wrapper .cm-btn:hover {
+      background-color: var(--primary-dark) !important;
+    }
+
+    /* FAQ */
+    .faq-hero img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 5px solid var(--primary);
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: white;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section {
+        padding: 4rem 0;
+      }
+
+      .hero {
+        padding: 0 0 3rem;
+      }
+
+      .hero-content {
+        padding: 4rem 0 2rem;
+      }
+
+      nav a {
+        margin: 0 0.8rem;
+        font-size: 0.95rem;
+      }
+
+      .header-content {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-content">
+      <a href="/" class="logo" aria-label="Accueil Ycompris">
+        <img 
+          src="/images/Ycompris.jpg" 
+          alt="Logo Ycompris – Conformité ESG simplifiée avec l’IA" 
+        />
+      </a>
+
+      <nav>
+        <a href="/">Accueil</a>
+        <a href="/faq">FAQ</a>
+        <a href="/methode">Méthode</a>
+        <a href="/ressources">Ressources</a>
+        <a href="/expertise">Expertise</a>
+        <a href="/contact" class="btn btn--primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer style="background: var(--primary); color: white; text-align: center; padding: 2rem 1rem;">
+    <div class="container">
+      <p>Ycompris – De la conformité à l’avantage concurrentiel avec l’IA</p>
+      
+      <p style="margin-top: 1rem;">
+        <a href="/mentions-legales" style="color: white; margin: 0 1rem; text-decoration: none;">Mentions légales</a> |
+        <a href="/politique-confidentialite" style="color: white; margin: 0 1rem; text-decoration: none;">Politique de confidentialité</a> |
+        <a href="/contact" style="color: white; margin: 0 1rem; text-decoration: none;">Contact</a>
+      </p>
+      
+      <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+        © {new Date().getFullYear()} Ycompris – EI Yves Cavarec – Finistère, Bretagne
+      </p>
+    </div>
+  </footer>
+
+  <style>
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <CookieConsent client:load />
+</body>
+</html>

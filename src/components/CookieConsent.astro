@@ -1,0 +1,89 @@
+<!-- CSS stable v2.9.2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.css" />
+
+<!-- JS stable v2.9.2 -->
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.2/dist/cookieconsent.js" async></script>
+
+<script is:inline>
+  function initCC() {
+    if (typeof window.initCookieConsent === 'function') {
+      const cc = window.initCookieConsent();
+
+    cc.run({
+    current_lang: 'fr',
+    autoclear_cookies: true,
+    page_scripts: true,
+
+    gui_options: {
+        consent_modal: {
+        layout: 'cloud',
+        position: 'bottom center',
+        equal_weight_buttons: true,
+        flip_buttons: false
+        },
+        preferences_modal: {
+        layout: 'box',
+        position: 'right',
+        equal_weight_buttons: true
+        }
+    },
+
+    categories: {
+        necessary: {
+        enabled: true,
+        readOnly: true
+        }
+        // Plus de analytics ni marketing → bannière ultra-minimaliste
+    },
+
+    languages: {
+        fr: {
+        consent_modal: {
+            title: 'Cookies et vie privée',
+            description: 'Ce site utilise uniquement des cookies strictement nécessaires au fonctionnement. Aucune donnée n\'est collectée ni partagée sans votre consentement explicite. En continuant à naviguer, vous acceptez ces cookies nécessaires.',
+            primary_btn: {
+            text: 'Accepter',
+            role: 'accept_all'
+            },
+            secondary_btn: {
+            text: 'En savoir plus',
+            role: 'c-settings'
+            }
+        },
+        settings_modal: {
+            title: 'Paramètres cookies',
+            save_settings_btn: 'Enregistrer',
+            accept_all_btn: 'Tout accepter',
+            reject_all_btn: 'Tout refuser',
+            close_btn_label: 'Fermer',
+            blocks: [
+            {
+                title: 'Cookies strictement nécessaires',
+                description: 'Ces cookies sont indispensables au bon fonctionnement du site et ne peuvent pas être désactivés.'
+            },
+            {
+                title: 'En savoir plus',
+                description: 'Consultez notre <a href="/politique-confidentialite" target="_blank">Politique de confidentialité</a> pour tous les détails sur le traitement de vos données.'
+            }
+]
+        }
+        }
+    },
+
+    // Optionnel : force l'affichage initial pour test (à enlever après)
+    // force_consent_modal: true,
+    });
+      console.log('CookieConsent v2.9.2 initialisé avec succès');
+    } else {
+      console.warn('CookieConsent pas encore chargé, retry dans 500ms...');
+      setTimeout(initCC, 500);
+    }
+  }
+
+  // Lancement
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCC);
+  } else {
+    initCC();
+  }
+</script>

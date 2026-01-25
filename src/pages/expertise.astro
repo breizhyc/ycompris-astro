@@ -1,0 +1,242 @@
+---
+// src/pages/expertise.astro
+import MainLayout from "../layouts/MainLayout.astro";
+
+const pageTitle = "Expertise Ycompris — Conformité ESG, CSRD, Audit de durabilité";
+const pageDescription =
+  "Expertise reconnue en CSRD, ESRS, taxonomie verte et audit de durabilité. Yves Cavarec, fondateur, accompagne les ETI bretonnes et françaises avec une approche pragmatique, rigoureuse et ancrée localement.";
+const canonical = "https://ycompris.bzh/expertise";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ycompris",
+  "url": "https://ycompris.bzh",
+  "logo": "https://ycompris.bzh/images/Ycompris.jpg",
+  "description": "Accompagnement des ETI en conformité ESG, structuration et valorisation des données extra-financières, CSRD/ESRS/VSME, avec expertise en audit de durabilité.",
+  "founder": {
+    "@type": "Person",
+    "name": "Yves Cavarec",
+    "jobTitle": "Fondateur Ycompris – Expert CSRD & Audit de durabilité",
+    "description": "Ancien membre du comité de direction Deloitte BPS France, cofondateur Sustain Audit, formateur AFNOR CSRD/ESRS/taxonomie, évaluateur technique Cofrac.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Finistère, Bretagne",
+      "addressCountry": "FR"
+    }
+  },
+  "sameAs": ["https://www.linkedin.com/company/ycompris"]
+};
+---
+
+<MainLayout title={pageTitle} description={pageDescription} canonical={canonical}>
+  <Fragment slot="head">
+    <meta name="robots" content="index,follow" />
+    <script type="application/ld+json">
+      {JSON.stringify(jsonLd)}
+    </script>
+  </Fragment>
+
+  <header class="page-hero container">
+    <h1>Expertise Ycompris</h1>
+    <p class="lead" style="color: black;">
+      Une expertise pointue et opérationnelle en conformité ESG, CSRD, ESRS, taxonomie verte et audit de durabilité,<br />
+      au service des ETI bretonnes et françaises — avec une approche pragmatique, pédagogique et ancrée localement.
+    </p>
+  </header>
+
+  <main>
+    <!-- INTRO -->
+    <section class="section container">
+      <h2>Renforcez votre stratégie de durabilité avec une expertise reconnue</h2>
+      <p>
+        Ycompris aide les entreprises de taille intermédiaire (ETI) à structurer, fiabiliser et valoriser leurs données ESG pour répondre aux exigences des investisseurs, des régulateurs et des partenaires.
+      </p>
+      <p>
+        La performance extra-financière n’est plus réservée aux grands groupes : c’est un levier stratégique accessible à toutes les organisations. Nous traduisons les obligations complexes (CSRD, ESRS, VSME, taxonomie UE) en actions concrètes, réalistes et rentables.
+      </p>
+    </section>
+
+    <!-- NOTRE APPROCHE -->
+    <section class="section section--alt container">
+      <h2>Notre approche : clarté, fiabilité, utilité</h2>
+      <p>
+        Les ETI ne disposent pas toujours d’équipes RSE ou conformité dédiées. C’est pourquoi nous proposons un accompagnement adapté, opérationnel et sans lourdeur administrative.
+      </p>
+      <p>
+        Notre méthode repose sur trois piliers essentiels :
+      </p>
+      <ul>
+        <li><strong>Clarté</strong> — Traduire les normes européennes en langage et actions compréhensibles pour les dirigeants et équipes.</li>
+        <li><strong>Fiabilité</strong> — Garantir des données traçables, vérifiables et audit-ready (limited assurance CAC/OTI).</li>
+        <li><strong>Utilité</strong> — Transformer la conformité en avantage concurrentiel : attractivité investisseurs, réduction des risques, optimisation coûts.</li>
+      </ul>
+    </section>
+
+    <!-- FONDATEUR avec protection -->
+    <section class="section container" id="fondateur">
+      <h2>Yves Cavarec, fondateur d’Ycompris</h2>
+      
+      <div class="founder-bio">
+        <div class="protected-portrait">
+          <div class="photo-bg"></div>
+          <div class="photo-overlay"></div>
+        </div>
+        
+        <div class="founder-text">
+          <p>
+            « Lors de mon parcours dans le conseil, notamment comme membre du comité de direction de Deloitte BPS en France, j’ai accompagné de nombreuses grandes entreprises dans leur structuration, leur mise en conformité et leur transformation. Ce que j’y ai appris : la rigueur ne doit pas être synonyme de lourdeur, et l’efficacité passe par la clarté. »
+          </p>
+          <p>
+            Ycompris a vocation à accompagner les ETI en Bretagne et en France avec une offre de proximité. Depuis le Finistère, où j’ai grandi et commencé mes études, je développe une expertise adaptée aux réalités des entreprises intermédiaires : structurer l’essentiel, fiabiliser l’information et avancer avec confiance dans un environnement réglementaire dense.
+          </p>
+          <p>
+            Je garde un pied à Paris, où j’ai cofondé <a href="https://sustainaudit.fr" target="_blank" rel="noopener">Sustain Audit</a>, organisme tiers indépendant dédié à l’audit des rapports de durabilité. Cette double implantation me permet d’intervenir au plus près des territoires tout en restant connecté aux évolutions nationales et européennes.
+          </p>
+          <p>
+            Formateur et concepteur de formations pour l’AFNOR sur la directive CSRD, les normes ESRS et la taxonomie verte européenne, je suis également évaluateur technique auprès du Cofrac, où j’examine les organismes candidats à l’accréditation en tant qu’OTI. Cette expérience triple (conseil, audit, formation/accréditation) garantit un regard rigoureux, opérationnel et toujours à jour sur les attentes des régulateurs.
+          </p>
+          <p><em>Yves Cavarec – Fondateur Ycompris</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta container">
+      <h2>Bénéficiez de notre expertise en données ESG</h2>
+      <p>
+        Contactez-nous pour discuter de votre contexte : taille, secteur, obligations CSRD/VSME, besoins en audit ou en automatisation IA.
+      </p>
+      <p>
+        <a href="/contact" class="btn btn--primary">Parlez-nous de votre projet →</a>
+      </p>
+    </section>
+  </main>
+</MainLayout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #e6f4f4 0%, #d9f0f0 100%);
+    padding: 6rem 0 4rem;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 1.5rem auto 0;
+  }
+
+  .section--alt {
+    background: var(--light);
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+  }
+
+  .founder-bio {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    align-items: flex-start;
+  }
+
+  .founder-text {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  /* Protection de la photo – fond original conservé */
+  .protected-portrait {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+
+  .photo-bg {
+    position: absolute;
+    inset: 0;
+    background: url('/images/Yves-Cavarec.png') center/cover no-repeat;
+    /* Pas de background-color forcé → fond original du PNG */
+  }
+
+  .photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    cursor: default;
+  }
+
+  .cta {
+    text-align: center;
+    background: var(--primary);
+    color: white;
+    border-radius: var(--radius);
+    padding: 4rem 2rem;
+  }
+
+  .cta h2 {
+    color: white;
+  }
+
+  .cta .btn {
+    background: white;
+    color: var(--primary);
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+
+  .cta .btn:hover {
+    background: var(--primary-dark);
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .founder-bio {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .protected-portrait {
+      width: 200px;
+      height: 340px;
+      margin: 0 auto 2rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Protection anti-copie sur la zone de la photo
+  document.addEventListener('DOMContentLoaded', () => {
+    const protectedZone = document.querySelector('.protected-portrait');
+    if (protectedZone) {
+      protectedZone.addEventListener('contextmenu', e => e.preventDefault());
+      protectedZone.addEventListener('dragstart', e => e.preventDefault());
+      protectedZone.addEventListener('selectstart', e => e.preventDefault());
+      
+      protectedZone.querySelector('.photo-overlay')?.addEventListener('contextmenu', e => e.preventDefault());
+    }
+  });
+</script>

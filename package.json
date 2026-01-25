@@ -1,0 +1,20 @@
+{
+  "name": "c-users-yc-onedrive---ycompris-documents-99-ycompris-com-202602-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "@jop-software/astro-cookieconsent": "^3.0.1",
+    "astro": "^5.16.15",
+    "sharp": "^0.34.3",
+    "vanilla-cookieconsent": "^3.1.0"
+  }
+}
