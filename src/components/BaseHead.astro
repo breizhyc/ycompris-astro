@@ -1,18 +1,30 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
 import { SITE_TITLE } from '../consts';
 
-interface Props {
-	title: string;
-	description: string;
-	image?: ImageMetadata;
-}
+// Récupération du site de base avec fallback très robuste
+const SITE_BASE = Astro.site 
+  ?? import.meta.env.PUBLIC_SITE_URL 
+  ?? 'https://ycompris.com';  // ← Change ici si tu veux un autre domaine par défaut pour les tests
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Fallback pour l'URL courante (utilisé pour og:url, twitter:url, etc.)
+const currentURL = Astro.url instanceof URL 
+  ? Astro.url 
+  : new URL(Astro.request.url || '/', SITE_BASE);
+
+// Canonical URL robuste
+const canonicalURL = new URL(Astro.url?.pathname || '/', SITE_BASE);
+
+// RSS URL robuste
+const rssURL = new URL('rss.xml', SITE_BASE);
+
+// Image URL robuste (pour og:image et twitter:image)
+const imageURL = new URL(
+  Astro.props.image?.src || FallbackImage.src,
+  currentURL.origin  // on prend l'origine pour éviter les chemins relatifs cassés
+);
 
 const { title, description, image = FallbackImage } = Astro.props;
 ---
@@ -24,10 +36,10 @@ const { title, description, image = FallbackImage } = Astro.props;
 <link rel="icon" href="/favicon.ico" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE_TITLE}
+  href={rssURL.href}
 />
 <meta name="generator" content={Astro.generator} />
 
@@ -35,8 +47,8 @@ const { title, description, image = FallbackImage } = Astro.props;
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
 <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
 
-<!-- Canonical URL -->
-<link rel="canonical" href={canonicalURL} />
+<!-- Canonical URL (toujours absolu et sûr) -->
+<link rel="canonical" href={canonicalURL.href} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -45,14 +57,14 @@ const { title, description, image = FallbackImage } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={Astro.url} />
+<meta property="og:url" content={currentURL.href} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={imageURL.href} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:url" content={currentURL.href} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={imageURL.href} />
