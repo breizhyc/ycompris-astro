@@ -1,7 +1,6 @@
 ---
 // src/layouts/MainLayout.astro
 import CookieConsent from '../components/CookieConsent.astro';
-
 const { title = 'Ycompris' } = Astro.props;
 ---
 
@@ -18,7 +17,7 @@ const { title = 'Ycompris' } = Astro.props;
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Ycompris",
-      "url": "https://ycompris.bzh",
+      "url": "https://ycompris.com",
       "description": "Conformité ESG simplifiée, information structurée, coûts maîtrisés – avec l’IA pour transformer les obligations en avantage concurrentiel.",
       "sameAs": ["https://www.linkedin.com/company/ycompris"]
     }
@@ -295,6 +294,6 @@ const { title = 'Ycompris' } = Astro.props;
     }
   </style>
 
-  <CookieConsent client:load />
+  <CookieConsent />
 </body>
 </html>
