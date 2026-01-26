@@ -51,6 +51,12 @@ import MainLayout from '../layouts/MainLayout.astro';
         <textarea id="message" name="message" rows="6" required></textarea>
       </div>
 
+      <!-- Cloudflare Turnstile invisible -->
+      <div class="form-group">
+        <div class="cf-turnstile" 
+             data-sitekey="0x4AAAAAACPNFP5V-crlEgXu" 
+             data-callback="onTurnstileSuccess"></div>
+      </div>
 
       <div class="form-group consent">
         <label>
