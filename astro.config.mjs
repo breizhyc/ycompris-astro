@@ -8,7 +8,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://ycompris.com',
 
- trailingSlash: 'never', 
+   trailingSlash: 'always',
   
   integrations: [
     mdx(),
