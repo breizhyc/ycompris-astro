@@ -1,0 +1,6 @@
+# netlify.toml
+[[redirects]]
+  from = "/merci"
+  to = "/merci/"
+  status = 301
+  force = true
