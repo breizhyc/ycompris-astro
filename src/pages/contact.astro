@@ -1,136 +1,33 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro'; // Assurez-vous que ce chemin est correct pour votre MainLayout
 ---
 
-<MainLayout title="Contact - Ycompris">
-  <section class="section container">
-    <h1>Contactez-nous</h1>
-    
-    <p class="lead" style="color: black; max-width: 700px; margin: 1rem auto 2rem;">
-      ETI: demandez un diagnostic "greenwashing" ou "loi Sapin II" gratuit ou discutons de vos projets. 
-      Nous répondons rapidement (sous 48h ouvrées normalement).
-    </p>
+<MainLayout title="contact">
+  <h1>contact</h1>
+  <p>ETI: demandez un diagnostic "greenwashing" ou "loi Sapin II" gratuit ou discutons de vos projets. Nous répondons rapidement (sous 48h ouvrées normalement).</p>
 
-      <form 
-        name="contact" 
-        method="POST" 
-        data-netlify="true" 
-        data-netlify-honeypot="bot-field"
-        action="/merci"
-        class="contact-form"
-        style="max-width: 600px; margin: 0 auto;"
-      >
-      <!-- Honeypot anti-spam -->
-      <input type="text" name="bot-field" style="display: none;" />
+  <form name="contact" method="POST" data-netlify="true" action="/merci/">
+    <input type="hidden" name="form-name" value="contact" />
 
-      <!-- Netlify hidden field -->
-      <input type="hidden" name="form-name" value="contact" />
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" required />
 
-      <div class="form-group">
-        <label for="name">Nom *</label>
-        <input type="text" id="name" name="name" required />
-      </div>
+    <label for="entreprise">Entreprise :</label>
+    <input type="text" id="entreprise" name="entreprise" required />
 
-      <div class="form-group">
-        <label for="societe">Société (facultatif)</label>
-        <input type="text" id="societe" name="societe" />
-      </div>
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" required />
 
-      <div class="form-group">
-        <label for="email">Email professionnel *</label>
-        <input type="email" id="email" name="email" required />
-      </div>
+    <label for="texte">Texte (votre message) :</label>
+    <textarea id="texte" name="texte" required></textarea>
 
-      <div class="form-group">
-        <label for="phone">Téléphone (facultatif)</label>
-        <input type="tel" id="phone" name="phone" />
-      </div>
+    <label>
+      <input type="checkbox" name="acceptation" required />
+      J’accepte que mes données soient traitées conformément à la <a href="/politique-confidentialite/">Politique de confidentialité</a>
+    </label>
 
-      <div class="form-group">
-        <label for="message">Votre message *</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
+    <button type="submit">Envoyer</button>
+  </form>
 
-      <!-- Cloudflare Turnstile invisible -->
-      <div class="form-group">
-        <div class="cf-turnstile" 
-             data-sitekey="0x4AAAAAACPNFP5V-crlEgXu" 
-             data-callback="onTurnstileSuccess"></div>
-      </div>
-
-      <div class="form-group consent">
-        <label>
-          <input type="checkbox" name="consent" required />
-          J’accepte que mes données soient traitées conformément à la 
-          <a href="/politique-confidentialite">Politique de confidentialité</a>
-        </label>
-      </div>
-
-      <button type="submit" class="btn btn--primary">Envoyer ma demande</button>
-    </form>
-  </section>
+  <p>Coordonnées du siège d'Ycompris : 6 rue Portsrein 29200 Brest</p>
 </MainLayout>
-
-<!-- Script Cloudflare Turnstile (à charger une seule fois) -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-<script is:inline>
-  // Callback quand Turnstile réussit
-  function onTurnstileSuccess(token) {
-    // Tu peux ajouter le token dans un champ caché si besoin
-    console.log('Turnstile validé avec token:', token);
-  }
-</script>
-
-<style>
-  .contact-form {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--radius);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--primary);
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: var(--radius);
-    font-size: 1rem;
-  }
-
-  input:focus, textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0,122,122,0.15);
-  }
-
-  .consent {
-    font-size: 0.95rem;
-    margin: 1.5rem 0;
-  }
-
-  .consent a {
-    color: var(--primary);
-    text-decoration: underline;
-  }
-
-  .cf-turnstile {
-    margin: 1rem 0;
-  }
-
-  .btn--primary {
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-  }
-</style>
