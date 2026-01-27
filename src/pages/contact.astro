@@ -3,31 +3,122 @@ import MainLayout from '../layouts/MainLayout.astro'; // Assurez-vous que ce che
 ---
 
 <MainLayout title="contact">
-  <h1>contact</h1>
-  <p>ETI: demandez un diagnostic "greenwashing" ou "loi Sapin II" gratuit ou discutons de vos projets. Nous répondons rapidement (sous 48h ouvrées normalement).</p>
+  <div class="content-wrapper">
+    <h1>Contact</h1>
+    <p>ETI: demandez un diagnostic "greenwashing" ou "loi Sapin II" gratuit ou discutons de vos projets. Nous répondons rapidement (sous 48h ouvrées normalement).</p>
 
-  <form name="contact" method="POST" data-netlify="true" action="/merci/">
-    <input type="hidden" name="form-name" value="contact" />
+<form 
+  name="contact" 
+  method="POST" 
+  data-netlify="true" 
+  action="/merci/" 
+  class="contact-form"
+>
+  <input type="hidden" name="form-name" value="contact" />
 
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required />
+  <div class="form-group">
+    <label for="nom">Nom <span class="required">*</span></label>
+    <input type="text" id="nom" name="nom" required placeholder="Votre nom" />
+  </div>
 
-    <label for="entreprise">Entreprise :</label>
-    <input type="text" id="entreprise" name="entreprise" required />
+  <div class="form-group">
+    <label for="entreprise">Entreprise <span class="required">*</span></label>
+    <input type="text" id="entreprise" name="entreprise" required placeholder="Nom de votre entreprise" />
+  </div>
 
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required />
+  <div class="form-group">
+    <label for="email">Email <span class="required">*</span></label>
+    <input type="email" id="email" name="email" required placeholder="votre@email.com" />
+  </div>
 
-    <label for="texte">Texte (votre message) :</label>
-    <textarea id="texte" name="texte" required></textarea>
+  <div class="form-group">
+    <label for="texte">Votre message <span class="required">*</span></label>
+    <textarea id="texte" name="texte" rows="6" required placeholder="Décrivez votre besoin..."></textarea>
+  </div>
 
+  <div class="form-group checkbox">
     <label>
       <input type="checkbox" name="acceptation" required />
-      J’accepte que mes données soient traitées conformément à la <a href="/politique-confidentialite/">Politique de confidentialité</a>
+      J’accepte que mes données soient traitées conformément à la 
+      <a href="/politique-confidentialite/" target="_blank">Politique de confidentialité</a>
     </label>
+  </div>
 
-    <button type="submit">Envoyer</button>
-  </form>
+  <button type="submit" class="submit-btn">Envoyer le message</button>
+</form>
 
-  <p>Coordonnées du siège d'Ycompris : 6 rue Portsrein 29200 Brest</p>
+<style>
+  .contact-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  }
+
+  .required {
+    color: #e74c3c;
+  }
+
+  .checkbox {
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+  }
+
+.submit-btn {
+  background: white;                /* fond blanc */
+  color: #2E7D32;                   /* texte vert foncé */
+  border: 2px solid #2E7D32;        /* bordure verte pour le faire ressortir */
+  padding: 0.9rem 1.8rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;                /* pour plus d'impact */
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #2E7D32;              /* au survol : fond vert */
+  color: white;                     /* texte blanc */
+  border-color: #2E7D32;
+}
+
+  @media (max-width: 600px) {
+    .contact-form {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<p>Coordonnées du siège d'Ycompris : 6 rue Portsrein 29200 Brest</p>
+  </div>
 </MainLayout>
