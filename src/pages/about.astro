@@ -1,63 +1,72 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<MainLayout title="À propos de Ycompris – Expertise ESG & reporting de durabilité">
+  <section class="section container">
+    <h1>À propos de Ycompris</h1>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+    <p style="font-size: 1.25rem; line-height: 1.7; max-width: 800px; margin: 0 auto 3rem;">
+      Ycompris accompagne les entreprises de taille intermédiaire (ETI), les groupes et leurs partenaires (CAC, OTI, investisseurs, institutions) dans la <strong>structuration</strong>, la <strong>fiabilisation</strong> et la <strong>valorisation</strong> de leurs informations extra-financières.
+    </p>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 4rem 0;">
+      <div style="flex: 1 1 300px; min-width: 300px;">
+        <h2>Notre mission</h2>
+        <p>
+          Transformer la complexité réglementaire (CSRD, ESRS, VSME, taxonomie, loi Sapin II, directive anti-greenwashing 2024/825) en <strong>levier stratégique</strong> : données fiables, allégations sécurisées, reporting audit-ready, communication crédible et coûts maîtrisés.
+        </p>
+        <p>
+          Nous intervenons à toutes les étapes : double matérialité, traçabilité des données, structuration des processus, sécurisation des communications, préparation aux audits CAC/OTI, formation des équipes.
+        </p>
+      </div>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+      <div style="flex: 1 1 300px; min-width: 300px;">
+        <h2>Notre différence</h2>
+        <ul style="padding-left: 0; list-style: none;">
+          <li style="margin-bottom: 1rem;">✓ Expertise opérationnelle (conseil, audit, formation, accréditation Cofrac)</li>
+          <li style="margin-bottom: 1rem;">✓ Approche pragmatique, sans lourdeur inutile</li>
+          <li style="margin-bottom: 1rem;">✓ Focus sur la traçabilité et l’auditabilité des données</li>
+          <li style="margin-bottom: 1rem;">✓ Intégration de l’IA pour accélérer et sécuriser</li>
+          <li style="margin-bottom: 1rem;">✓ Ancrage breton (Finistère) et rayonnement national</li>
+        </ul>
+      </div>
+    </div>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+    <h2>Parcours de Yves Cavarec, fondateur</h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+      <div style="flex: 0 0 280px;">
+        <img 
+          src="/images/Yves-Cavarec.png" 
+          alt="Yves Cavarec, fondateur Ycompris" 
+          style="width: 100%; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.1);"
+        />
+      </div>
+
+      <div style="flex: 1; min-width: 300px;">
+        <p>
+          Ancien membre du comité de direction de Deloitte BPS France, j’ai accompagné de nombreuses grandes entreprises dans leur transformation et leur conformité. J’ai ensuite cofondé Sustain Audit, organisme tiers indépendant dédié à l’audit des rapports de durabilité.
+        </p>
+        <p>
+          Formateur et concepteur de formations AFNOR sur CSRD/ESRS/taxonomie, évaluateur technique Cofrac pour l’accréditation des OTI, je mets aujourd’hui cette triple expertise (conseil, audit, formation/accréditation) au service des ETI.
+        </p>
+        <p>
+          Basé en Finistère, j’interviens en Bretagne et dans toute la France avec une approche de proximité, pragmatique et rigoureuse.
+        </p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 4rem;">
+      <a href="/contact" class="btn btn--primary" style="font-size: 1.3rem; padding: 1.2rem 2.5rem;">
+        Discutons de votre projet ESG
+      </a>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .section {
+    padding: 6rem 0;
+  }
+</style>
