@@ -61,7 +61,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     </section>
 
     <section class="section">
-      <h2>B2 – Pratiques, politiques et initiatives futures en vue de la transition vers une économie plus durable/h2>
+      <h2>B2 – Pratiques, politiques et initiatives futures en vue de la transition vers une économie plus durable/<h2>
       <ol>
         <li><h3>Politique de réduction des émissions de GES</h3>
           <p>Objectif : limiter l’impact carbone des déplacements professionnels.</p>
