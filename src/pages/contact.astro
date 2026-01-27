@@ -16,6 +16,11 @@ import MainLayout from '../layouts/MainLayout.astro'; // Assurez-vous que ce che
 >
   <input type="hidden" name="form-name" value="contact" />
 
+  <!-- Le honeypot : champ caché -->
+  <p class="honeypot" style="display: none;">
+    <label>Ne remplis pas ce champ : <input type="text" name="bot-field" /></label>
+  </p>
+
   <div class="form-group">
     <label for="nom">Nom <span class="required">*</span></label>
     <input type="text" id="nom" name="nom" required placeholder="Votre nom" />
@@ -44,6 +49,9 @@ import MainLayout from '../layouts/MainLayout.astro'; // Assurez-vous que ce che
     </label>
   </div>
 
+  <!-- div pour reCAPTCHA (Netlify y injecte la checkbox "I'm not a robot") -->
+  <div data-netlify-recaptcha="true" style="margin: 1.5rem 0;"></div>
+  
   <button type="submit" class="submit-btn">Envoyer le message</button>
 </form>
 
