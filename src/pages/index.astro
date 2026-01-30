@@ -7,7 +7,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
   <!-- Hero (déjà centré) -->
     <section class="hero">
-      <div class="hero-image" style="background-image: url('/images/pilotage.jpg');"></div>
+      <div class="hero-image" style="background-image: url('/images/rapport-RSE-Bretagne.jpg');"></div>
       <div class="hero-content container">
         <h1 style="font-size: clamp(2.5rem, 6vw, 3.8rem); margin-bottom: 1.5rem;">
           La conformité ESG simplifiée
@@ -25,10 +25,10 @@ import MainLayout from '../layouts/MainLayout.astro';
   <section class="section" style="background: white;">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">
-        Conformité simplifiée. Information ESG structurée. Coûts maîtrisés.
+        Conformité simplifiée. Information ESG structurée. Coûts RSE maîtrisés.
       </h2>
       <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto 3rem; color: var(--gray);">
-        Ycompris aide les entreprises, institutions et acteurs financiers à transformer la complexité ESG en levier stratégique : données fiables, allégations sécurisées, outils modernisés, obligations devenues atouts durables.
+        Ycompris aide les entreprises, institutions et acteurs financiers en Bretagne, en France et ailleurs à transformer la complexité ESG en levier stratégique : données fiables, allégations sécurisées, outils modernisés, obligations devenues atouts durables.
       </p>
 
       <div class="cards">
@@ -51,7 +51,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 
       <div class="cards">
         <div class="card">Sécurisation levée de fonds, notation ESG ou exigences investisseurs</div>
-        <div class="card">Reporting ESG (CSRD, ESRS, VSME, taxonomie, anticorruption)</div>
+        <div class="card">Reporting ESG / Rapport RSE (CSRD, ESRS, VSME, taxonomie, anticorruption)</div>
         <div class="card">Conformité règlementaire (loi Sapin II, Directive «liste noire» 2024/825/UE)</div>
         <div class="card">Auditabilité des données ESG par CAC / OTI</div>
         <div class="card">Communication ESG sécurisée et anti-greenwashing</div>
@@ -152,7 +152,21 @@ import MainLayout from '../layouts/MainLayout.astro';
       </p>
 
       <div style="max-width: 900px; margin: 0 auto 3rem;">
-        <img src="/images/Brest.jpg" alt="Ancrage à Brest et ouverture sur le monde – paysage symbolisant rigueur et international" style="max-width: 100%; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.1);" />
+        <img 
+          src="/images/Brest.jpg" 
+          alt="Ancrage breton de Ycompris à Brest – Ouverture internationale et rigueur en Finistère" 
+          loading="lazy"
+          width="900"
+          height="600"
+          class="anchor-image"
+          style="max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto; transition: transform 0.3s ease;"
+        />
+
+        <style>
+          .anchor-image:hover {
+            transform: scale(1.03);
+          }
+        </style>
       </div>
 
       <div>
@@ -193,7 +207,7 @@ import MainLayout from '../layouts/MainLayout.astro';
       </p>
       <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
         <a href="/contact" class="btn btn--primary" style="font-size: 1.3rem; background: white; color: var(--primary);">Parlez-nous de votre besoin</a>
-        <a href="/explorer" class="btn btn--secondary" style="font-size: 1.3rem; border-color: white; color: white;">Explorer vos besoins</a>
+        <a href="/expertise" class="btn btn--secondary" style="font-size: 1.3rem; border-color: white; color: white;">Expertise</a>
       </div>
     </div>
   </section>

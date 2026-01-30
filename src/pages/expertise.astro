@@ -7,26 +7,7 @@ const pageDescription =
   "Expertise reconnue en CSRD, ESRS, taxonomie verte et audit de durabilité. Yves Cavarec, fondateur, accompagne les ETI bretonnes et françaises avec une approche pragmatique, rigoureuse et ancrée localement.";
 const canonical = "https://ycompris.com/expertise";
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Ycompris",
-  "url": "https://ycompris.com",
-  "logo": "https://ycompris.com/images/Ycompris.jpg",
-  "description": "Accompagnement des ETI en conformité ESG, structuration et valorisation des données extra-financières, CSRD/ESRS/VSME, avec expertise en audit de durabilité.",
-  "founder": {
-    "@type": "Person",
-    "name": "Yves Cavarec",
-    "jobTitle": "Fondateur Ycompris – Expert CSRD & Audit de durabilité",
-    "description": "Ancien membre du comité de direction Deloitte BPS France, cofondateur Sustain Audit, formateur AFNOR CSRD/ESRS/taxonomie, évaluateur technique Cofrac.",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Finistère, Bretagne",
-      "addressCountry": "FR"
-    }
-  },
-  "sameAs": ["https://www.linkedin.com/company/ycompris"]
-};
+
 ---
 
 <MainLayout title={pageTitle} description={pageDescription} canonical={canonical}>
@@ -76,10 +57,19 @@ const jsonLd = {
     <!-- FONDATEUR avec protection -->
     <section class="section container" id="fondateur">
       <h2>Yves Cavarec, fondateur d’Ycompris</h2>
-      
       <div class="founder-bio">
         <div class="protected-portrait">
+          <!-- Fond original visible -->
           <div class="photo-bg"></div>
+          
+          <!-- Image cachée pour SEO + accessibilité + alt text local -->
+          <img
+            src="/images/Yves-Cavarec-CSRD-VSME-Bretagne.png"
+            alt="Yves Cavarec – Expert CSRD, ESRS, VSME et audit de durabilité en Bretagne (Finistère) – Fondateur Ycompris"
+            style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); opacity: 0;"
+            aria-hidden="true"
+          />
+          
           <div class="photo-overlay"></div>
         </div>
         
@@ -98,7 +88,7 @@ const jsonLd = {
           </p>
           <p><em>Yves Cavarec – Fondateur Ycompris</em></p>
         </div>
-      </div>
+      </div>      
     </section>
 
     <!-- CTA -->
@@ -177,7 +167,7 @@ const jsonLd = {
   .photo-bg {
     position: absolute;
     inset: 0;
-    background: url('/images/Yves-Cavarec.png') center/cover no-repeat;
+    background: url('/images/Yves-Cavarec-CSRD-VSME-Bretagne.png') center/cover no-repeat;
     /* Pas de background-color forcé → fond original du PNG */
   }
 

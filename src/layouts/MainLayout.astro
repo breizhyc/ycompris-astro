@@ -14,13 +14,30 @@ const { title = 'Ycompris' } = Astro.props;
   <!-- Schema JSON-LD de base (Organization) -->
   <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Ycompris",
-      "url": "https://ycompris.com",
-      "description": "Conformité ESG simplifiée, information structurée, coûts maîtrisés – avec l’IA pour transformer les obligations en avantage concurrentiel.",
-      "sameAs": ["https://www.linkedin.com/company/ycompris"]
-    }
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ycompris",
+    "url": "https://ycompris.com",
+    "logo": "https://ycompris.com/images/Ycompris.jpg",
+    "description": "Expertise en conformité ESG, CSRD, ESRS, VSME, taxonomie et anti-greenwashing pour ETI en Bretagne et France.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Finistère",
+      "addressRegion": "Bretagne",
+      "postalCode": "29000",
+      "addressCountry": "FR"
+    },
+    "telephone": "[ton numéro si public]",
+    "email": "contact@ycompris.com",
+    "sameAs": [
+      "https://www.linkedin.com/company/ycompris"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Yves Cavarec"
+    },
+    "areaServed": ["Bretagne", "France", "Europe"]
+  }
   </script>
 
   <style is:global>

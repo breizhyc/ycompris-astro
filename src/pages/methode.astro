@@ -9,7 +9,16 @@ const canonical = "https://ycompris.com/methode";
 
 <MainLayout title={pageTitle} description={pageDescription} canonical={canonical}>
   <header class="hero">
-    <div class="hero-image" style="background-image: url('/images/methode.jpg');"></div>
+    <!-- Fond visible (inchangé) -->
+    <div class="hero-image" style="background-image: url('/images/methode-rapport-RSE-Bretagne.jpg');"></div>
+
+    <!-- Image cachée pour SEO + accessibilité + alt text local -->
+    <img
+      src="/images/methode-rapport-RSE-Bretagne.jpg"
+      alt="Ressources méthodologie rapport RSE et conformité ESG pour ETI en Bretagne et Finistère – Ycompris"
+      style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); opacity: 0;"
+      aria-hidden="true"
+    />
     <div class="hero-content container">
       <h1>Méthode Ycompris</h1>
       <p class="lead" style="color: black;">
@@ -19,10 +28,16 @@ const canonical = "https://ycompris.com/methode";
         <strong>Communiquer</strong> avec clarté, preuves et conformité aux standards.
       </p>
     </div>
+
   </header>
   <main>
     <!-- INTRO -->
     <section class="section container">
+      <div style="text-align: center; margin: 2rem 0 3rem;">
+        <a href="/expertise" class="btn btn--primary" style="font-size: 1.2rem; padding: 1rem 2rem;">
+          Découvrir notre expertise ici
+        </a>
+      </div>
       <h2>Objectif de la méthode</h2>
       <p>
         Produire une information ESG <strong>traçable</strong>, <strong>vérifiable</strong>, <strong>comparable</strong> et <strong>compréhensible</strong> par vos parties prenantes (investisseurs, clients, auditeurs, régulateurs). 
