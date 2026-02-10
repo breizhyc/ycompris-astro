@@ -1,10 +1,30 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
+
+const title = "Guide VSME";
 ---
 
-<MainLayout title="Guide VSME – Rapport ESG simplifié pour PME & ETI | Ycompris">
-  <section class="section container">
-    <h1>Guide VSME</h1>
+<MainLayout title={title}>
+  <!-- Hero avec filigrane subtil – identique à l'accueil, Méthode et Ressources -->
+  <div class="hero" style="min-height: 450px; position: relative;">
+    <!-- Fond filigrane subtil -->
+<div 
+    class="hero-image" 
+    style="background-image: url('/images/vsme-guide-PME-bretonne.jpg');"
+  ></div>
+  
+  <!-- Image cachée pour SEO + accessibilité (alt text local) -->
+  <img 
+    src="/images/vsme-guide-PME-bretonne.jpg" 
+    alt="Guide VSME pour PME ou ETI bretonne Bretagne | Ycompris" 
+    style="position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0;"
+    aria-hidden="true"
+  />    
+    <!-- Contenu texte au premier plan -->
+    <div class="hero-content container" style="padding-top: 8rem;">
+      <h1>Guide VSME</h1>
+    </div>
+  </div>
 
     <p style="font-size: 1.25rem; line-height: 1.7; margin-bottom: 3rem; max-width: 800px;">
       Vous trouverez ici les ressources pour préparer vous-même un rapport VSME de qualité pour votre entreprise.

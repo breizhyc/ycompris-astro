@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://ycompris.com/sitemap-0.xml
