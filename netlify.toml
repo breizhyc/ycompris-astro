@@ -1,4 +1,9 @@
 # netlify.toml
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[redirects]]
   from = "/merci"
   to = "/merci/"

@@ -13,7 +13,9 @@
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@jop-software/astro-cookieconsent": "^3.0.1",
+    "@supabase/supabase-js": "^2.49.4",
     "astro": "^5.16.15",
+    "resend": "^4.5.1",
     "sharp": "^0.34.3",
     "vanilla-cookieconsent": "^3.1.0"
   }

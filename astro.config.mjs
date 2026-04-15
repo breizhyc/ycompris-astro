@@ -9,6 +9,8 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/gerse202606'),
+    }),
   ],
 });
