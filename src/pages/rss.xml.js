@@ -1,21 +1,19 @@
-import rss, { pagesGlobToRssItems } from '@astrojs/rss';
+import rss from '@astrojs/rss';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export async function GET(context) {
+  const posts = await getCollection('blog');
   return rss({
-    // Title et description du flux (adapte si tu veux)
-    title: 'Ycompris - Actualités et ressources',
-    description: 'Les dernières publications de Ycompris sur l\'ESG, la méthode, les ressources...',
-
-    // Le fix clé : site depuis context (Astro le remplit depuis astro.config.mjs)
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     site: context.site,
-
-    // Items du blog : utilise glob pour auto-détecter tes posts MD/MDX
-    // Adapte le chemin si tes posts ne sont pas dans src/content/blog/
-    items: await pagesGlobToRssItems(
-      import.meta.glob('./blog/*.{md,mdx}')  // ou '../content/blog/*.{md,mdx}' si dans content/
-    ),
-
-    // Optionnel : langue, custom XML data
+    items: posts.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      link: `/blog/${post.id}/`,
+    })),
     customData: `<language>fr-FR</language>`,
   });
 }
