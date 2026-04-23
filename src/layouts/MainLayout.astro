@@ -1,7 +1,31 @@
 ---
 // src/layouts/MainLayout.astro
 import CookieConsent from '../components/CookieConsent.astro';
-const { title = 'Ycompris' } = Astro.props;
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  ogImageAlt?: string;
+  canonical?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = 'Ycompris',
+  description = "Auteur de « Garder la main » (Librinova, 2026). Études et conseil sur l'IA en entreprise dans un environnement régulé.",
+  ogType = 'website',
+  ogImage = '/images/og-home-2026.jpg',
+  ogImageAlt = 'Yves Cavarec — Garder la main, Diriger à l’ère de l’IA',
+  canonical,
+  noindex = false,
+} = Astro.props;
+
+const SITE_BASE = Astro.site ?? new URL('https://ycompris.com');
+const currentURL = new URL(Astro.url?.pathname ?? '/', SITE_BASE).href;
+const canonicalURL = canonical ?? currentURL;
+const ogImageURL = new URL(ogImage, SITE_BASE).href;
 ---
 
 <!doctype html>
@@ -10,16 +34,41 @@ const { title = 'Ycompris' } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  {noindex && <meta name="robots" content="noindex" />}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- Font preloads -->
+  <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
+  <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content={ogType} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:alt" content={ogImageAlt} />
+  <meta property="og:url" content={currentURL} />
+  <meta property="og:site_name" content="Ycompris" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL} />
 
   <!-- Schema JSON-LD de base (Organization) -->
-  <script type="application/ld+json">
-    {
+  <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Ycompris",
     "url": "https://ycompris.com",
     "logo": "https://ycompris.com/images/Ycompris.jpg",
-    "description": "Expertise en conformité ESG, CSRD, ESRS, VSME, taxonomie et anti-greenwashing pour ETI en Bretagne et France.",
+    "description": "Études, outils et conseil pour dirigeants d'ETI et PME sur la gouvernance de l'IA, le reporting extra-financier et la conformité dans un environnement régulé.",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Brest",
@@ -28,6 +77,7 @@ const { title = 'Ycompris' } = Astro.props;
     },
     "email": "contact@ycompris.com",
     "sameAs": [
+      "https://www.linkedin.com/in/cavarec",
       "https://www.linkedin.com/company/ycompris"
     ],
     "founder": {
@@ -35,8 +85,10 @@ const { title = 'Ycompris' } = Astro.props;
       "name": "Yves Cavarec"
     },
     "areaServed": ["Bretagne", "France"]
-  }
-  </script>
+  })} />
+
+  <!-- Slot réservé pour JSON-LD additionnel par page (Person, Book, Article, BreadcrumbList, etc.) -->
+  <slot name="head-extra" />
 
   <style is:global>
     :root {
@@ -118,6 +170,17 @@ const { title = 'Ycompris' } = Astro.props;
     nav a:hover {
       opacity: 0.85;
       text-decoration: underline;
+    }
+
+    /* Picto lien externe inline, aligné au texte */
+    .ext-icon {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: 3px;
+      vertical-align: baseline;
+      fill: currentColor;
+      opacity: 0.75;
     }
 
     /* Boutons */
@@ -279,14 +342,20 @@ const { title = 'Ycompris' } = Astro.props;
   <header>
     <div class="container header-content">
       <a href="/" class="logo" aria-label="Accueil Ycompris">
-        <img 
-          src="/images/Ycompris.jpg" 
-          alt="Logo Ycompris – Conformité ESG simplifiée avec l’IA" 
+        <img
+          src="/images/Ycompris.jpg"
+          alt="Logo Ycompris – Gouvernance IA, reporting et conformité"
         />
       </a>
 
-      <nav>
+      <nav aria-label="Navigation principale">
         <a href="/">Accueil</a>
+        <a
+          href="https://glm.ycompris.com/garder-la-main"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Livre Garder la main (ouvre glm.ycompris.com dans un nouvel onglet)"
+        >Livre<svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg></a>
         <a href="/ia-esg">IA</a>
         <a href="/faq">FAQ</a>
         <a href="/methode">Méthode</a>
@@ -303,7 +372,7 @@ const { title = 'Ycompris' } = Astro.props;
 
   <footer style="background: var(--primary); color: white; text-align: center; padding: 2rem 1rem;">
     <div class="container">
-      <p>Ycompris – Performance ESG, Gouvernance IA, Risques géopolitiques</p>
+      <p>Ycompris – Gouvernance IA, reporting extra-financier, conformité</p>
       <p style="margin-top: 0.3rem; font-size: 0.9rem; opacity: 0.85;">
         Siège social : Brest (Finistère) — Bretagne, France &nbsp;·&nbsp;
         <a href="mailto:contact@ycompris.com" style="color: white;">contact@ycompris.com</a>
@@ -315,9 +384,9 @@ const { title = 'Ycompris' } = Astro.props;
         <a href="/contact" style="color: white; margin: 0 1rem; text-decoration: none;">Contact</a>
       </p>
       <p style="margin-top: 1rem; font-size: 0.85rem; opacity: 0.8;">
-        <a href="https://hoodspot.fr/conseil-affaires-et-gestion/ycompris-98428010700025/" 
-          target="_blank" 
-          rel="noopener" 
+        <a href="https://hoodspot.fr/conseil-affaires-et-gestion/ycompris-98428010700025/"
+          target="_blank"
+          rel="noopener noreferrer"
           style="color: white;">
           Fiche Hoodspot Ycompris
         </a>

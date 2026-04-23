@@ -1,27 +1,176 @@
 ---
 // src/pages/index.astro
 import MainLayout from '../layouts/MainLayout.astro';
+
+const title = "Yves Cavarec — Gouvernance IA & reporting | Ycompris";
+const description = "Auteur de « Garder la main » (Librinova, 2026). Études et conseil sur l'IA en entreprise dans un environnement régulé. Analyse du CAC40, gouvernance, conformité.";
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yves Cavarec",
+  "jobTitle": "Fondateur d'Ycompris, auteur",
+  "url": "https://ycompris.com/",
+  "sameAs": [
+    "https://glm.ycompris.com/",
+    "https://www.librinova.com/librairie/yves-cavarec/garder-la-main",
+    "https://www.linkedin.com/in/cavarec"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Ycompris SAS"
+  }
+};
+
+const bookLd = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Garder la main — Diriger à l'ère de l'IA",
+  "author": {
+    "@type": "Person",
+    "name": "Yves Cavarec"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Librinova"
+  },
+  "datePublished": "2026",
+  "inLanguage": "fr",
+  "url": "https://glm.ycompris.com/garder-la-main",
+  "image": "https://ycompris.com/images/garder-la-main.jpg"
+};
 ---
 
-<MainLayout title="Ycompris — Créer un avantage concurrentiel">
+<MainLayout
+  title={title}
+  description={description}
+  ogType="website"
+  ogImage="/images/og-home-2026.jpg"
+  ogImageAlt="Garder la main — Diriger à l'ère de l'IA, par Yves Cavarec"
+  canonical="https://ycompris.com/"
+>
+  <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(personLd)} />
+  <script slot="head-extra" type="application/ld+json" set:html={JSON.stringify(bookLd)} />
 
-  <!-- Hero (déjà centré) -->
-    <section class="hero">
-      <div class="hero-image" style="background-image: url('/images/rapport-RSE-Bretagne.jpg');"></div>
-      <div class="hero-content container">
-        <h1 style="font-size: clamp(2.5rem, 6vw, 3.8rem); margin-bottom: 1.5rem;">
-          Performance ESG à l'ère de l'IA et des tensions géopolitiques
-        </h1>
-        <p style="font-size: 1.5rem; color: var(--gray); max-width: 800px; margin: 0 auto 3rem; text-align: center;">
-          Créer un avantage concurrentiel face aux ruptures ESG, IA et géopolitiques
-        </p>
-        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-          <a href="/contact" class="btn btn--primary" style="font-size: 1.2rem;">Parlez-nous de votre besoin</a>
-          <a href="/methode" class="btn btn--primary" style="font-size: 1.2rem;">Explorer les leviers ESG</a>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-image" style="background-image: url('/images/rapport-RSE-Bretagne.jpg');"></div>
+    <div class="hero-content container">
+      <h1 style="font-size: clamp(2.5rem, 6vw, 3.8rem); margin-bottom: 1.5rem;">
+        Diriger à l'ère de l'IA — gouvernance, reporting, conformité
+      </h1>
+      <p style="font-size: 1.5rem; color: var(--gray); max-width: 800px; margin: 0 auto 3rem; text-align: center;">
+        Auteur de <em>Garder la main</em> (Librinova, 2026). Études, outils et conseil pour dirigeants dans un environnement régulé.
+      </p>
+      <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/contact" class="btn btn--primary" style="font-size: 1.2rem;">Parlez-nous de votre besoin</a>
+        <a href="/methode" class="btn btn--primary" style="font-size: 1.2rem;">Explorer la méthode</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bandeau auteur (§5.2) -->
+  <section class="section author-band" style="background: white; padding: 4rem 0;">
+    <div class="container">
+      <div class="author-band__grid">
+        <div class="author-band__cover">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="/images/garder-la-main-360.webp 360w, /images/garder-la-main-720.webp 720w, /images/garder-la-main.webp 1000w"
+              sizes="(max-width: 640px) 35vw, 180px"
+            />
+            <img
+              src="/images/garder-la-main.jpg"
+              srcset="/images/garder-la-main-360.jpg 360w, /images/garder-la-main-720.jpg 720w, /images/garder-la-main.jpg 1000w"
+              sizes="(max-width: 640px) 35vw, 180px"
+              alt="Couverture du livre Garder la main – Diriger à l'ère de l'IA, par Yves Cavarec"
+              width="1000"
+              height="1545"
+              loading="lazy"
+            />
+          </picture>
+        </div>
+        <div class="author-band__text">
+          <h2 style="margin-top: 0;">Garder la main — Diriger à l'ère de l'IA</h2>
+          <p style="color: var(--gray); margin: 0.2rem 0 1rem;"><em>Librinova, 2026</em></p>
+          <p style="font-size: 1.1rem; margin-bottom: 1.8rem;">
+            Un livre-outil pour les dirigeants qui veulent garder la main sur les décisions à l'ère de l'IA.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+            <a
+              class="btn btn--primary"
+              href="https://glm.ycompris.com/garder-la-main"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Découvrir le livre (ouvre glm.ycompris.com dans un nouvel onglet)"
+            >
+              Découvrir le livre
+              <svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg>
+            </a>
+            <a
+              href="https://www.librinova.com/librairie/yves-cavarec/garder-la-main"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Acheter ou précommander le livre sur Librinova (nouvel onglet)"
+              style="color: var(--primary); font-weight: 600;"
+            >
+              Acheter / précommander sur Librinova
+              <svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg>
+            </a>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.88rem; color: var(--gray);">
+            Ebook disponible sur Librinova, Fnac, Amazon et autres plateformes. Livre papier en précommande.
+          </p>
         </div>
       </div>
-    </section>
-  <!-- Section 1 -->
+    </div>
+  </section>
+
+  <!-- Études & publications (§5.3) -->
+  <section class="section" style="background: var(--light); padding: 5rem 0;">
+    <div class="container">
+      <h2 style="text-align: center; font-size: 2.3rem; margin-bottom: 2.5rem;">Études &amp; publications</h2>
+      <div class="pub-grid">
+        <article class="pub-card">
+          <p class="pub-card__tag">Étude — Avril 2026</p>
+          <h3 style="margin-top: 0.4rem;">L'IA dans les DEU du CAC40 : beaucoup de bruit, peu de substance</h3>
+          <p style="color: var(--text);">
+            Analyse systématique des mentions d'intelligence artificielle dans les 38 Documents d'Enregistrement Universel du CAC40 disponibles à la date de l'étude. Données, méthodologie et implications pour la gouvernance.
+          </p>
+          <a
+            href="https://glm.ycompris.com/deu-cac40-2025"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Lire l'étude CAC40 sur glm.ycompris.com (nouvel onglet)"
+            class="pub-card__link"
+          >
+            Lire l'étude →
+            <svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg>
+          </a>
+        </article>
+        <article class="pub-card">
+          <p class="pub-card__tag">Livre — 2026</p>
+          <h3 style="margin-top: 0.4rem;">Garder la main — Diriger à l'ère de l'IA</h3>
+          <p style="color: var(--text);">
+            Un livre-outil pour dirigeants sur la gouvernance de l'IA en entreprise. Publié chez Librinova, 2026.
+          </p>
+          <a
+            href="https://glm.ycompris.com/garder-la-main"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Voir la fiche du livre sur glm.ycompris.com (nouvel onglet)"
+            class="pub-card__link"
+          >
+            Fiche du livre →
+            <svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section "Stratégie ESG offensive..." (inchangé) -->
   <section class="section" style="background: white;">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">
@@ -37,32 +186,31 @@ import MainLayout from '../layouts/MainLayout.astro';
         <div class="card">Anticipation : Risques IA et géopolitiques intégrés dans votre stratégie</div>
       </div>
     </div>
-         <!-- Bouton vers IA & ESG – placé à la fin de la page ou après le CTA principal -->
-    <div style="text-align: center; margin: 4rem 0;">
-      <a 
-        href="/ia-esg" 
-        class="btn btn--primary" 
+
+    <div style="text-align: center; margin: 4rem 0 0;">
+      <a
+        href="/ia-esg"
+        class="btn btn--primary"
         style="font-size: 1.2rem; padding: 1rem 2rem;"
       >
         En savoir plus sur la relation entre IA et ESG
       </a>
     </div>
-
   </section>
 
-  <!-- Section 2 -->
+  <!-- Section Domaine couvert -->
   <section class="section" style="background: var(--light);">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">
         Domaine couvert par Ycompris
       </h2>
       <p style="font-size: 1.2rem; color: var(--gray); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">
-        Pas d’offre préfabriquée. Vous décrivez votre enjeu, nous formalisons la solution et les résultats attendus.
+        Pas d'offre préfabriquée. Vous décrivez votre enjeu, nous formalisons la solution et les résultats attendus.
       </p>
 
       <div class="cards">
-        <div class="card">🛡️ Gouvernance de l'IA et risques géopolitiques Analyse des dépendances, stratégie de souveraineté des données, intégration dans le reporting ESG (gouvernance, social, chaîne de valeur)</div>
-        <div class="card"><a href="https://ariall.ycompris.com" style="text-decoration:none;color:inherit;">⚖️ Communication ESG sécurisée et anti-greenwashing</a></div>
+        <div class="card">🛡️ Gouvernance de l'IA et risques géopolitiques. Analyse des dépendances, stratégie de souveraineté des données, intégration dans le reporting ESG (gouvernance, social, chaîne de valeur)</div>
+        <div class="card"><a href="https://ariall.ycompris.com" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;">⚖️ Communication ESG sécurisée et anti-greenwashing</a></div>
         <div class="card">Sécurisation levée de fonds, notation ESG ou exigences investisseurs</div>
         <div class="card">Reporting ESG / Rapport RSE (CSRD, ESRS, VSME, taxonomie, anticorruption, IA et géopolitique)</div>
         <div class="card">Conformité règlementaire (loi Sapin II, Directive «liste noire» 2024/825/UE)</div>
@@ -73,12 +221,12 @@ import MainLayout from '../layouts/MainLayout.astro';
       </div>
 
       <div style="margin-top: 3rem;">
-        <a href="/explorer" class="btn btn--primary">Explorer vos besoins</a>
+        <a href="/contact" class="btn btn--primary">Parler de vos besoins</a>
       </div>
     </div>
   </section>
 
-  <!-- Section 3 – Méthode -->
+  <!-- Section Méthode -->
   <section class="section" style="background: white;">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">
@@ -98,8 +246,6 @@ import MainLayout from '../layouts/MainLayout.astro';
           <h3>3. Communiquer</h3>
           <p>Appliquer les standards pour être compris des parties prenantes.</p>
         </div>
-        <div class="step">
-        </div>
       </div>
 
       <div style="margin-top: 4rem;">
@@ -108,7 +254,7 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Section 4 – Secteurs -->
+  <!-- Section Secteurs -->
   <section class="section" style="background: var(--light);">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">
@@ -116,16 +262,15 @@ import MainLayout from '../layouts/MainLayout.astro';
       </h2>
 
       <div class="cards">
-        <div class="card">Entreprises (ETI/PME) : reporting, outils, plans d’action, transformation ESG</div>
+        <div class="card">Entreprises (ETI/PME) : reporting, outils, plans d'action, transformation ESG</div>
         <div class="card">CAC / OTI : audit vert, ESRS, traçabilité, contrôles renforcés</div>
-        <div class="card">Institutions & régulateurs : expertises techniques, analyses, formations</div>
-        <div class="card">Finance & investisseurs : évaluation ESG, exigences données, comparabilité</div>
+        <div class="card">Institutions &amp; régulateurs : expertises techniques, analyses, formations</div>
+        <div class="card">Finance &amp; investisseurs : évaluation ESG, exigences données, comparabilité</div>
       </div>
-
     </div>
   </section>
 
-  <!-- Section 5 – Réalisations -->
+  <!-- Section Réalisations (§5.4) -->
   <section class="section" style="background: white;">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">
@@ -133,18 +278,19 @@ import MainLayout from '../layouts/MainLayout.astro';
       </h2>
 
       <ul style="max-width: 900px; margin: 0 auto 3rem; list-style: none; padding: 0; font-size: 1.1rem; text-align: left;">
+        <li style="margin-bottom: 1rem;">Analyse quantitative des 38 DEU du CAC40 — mentions d'IA (2026)</li>
         <li style="margin-bottom: 1rem;">Analyse de dépendances technologiques et géopolitiques (cloud, semi-conducteurs, chaîne de valeur) pour intégration dans reporting ESG</li>
         <li style="margin-bottom: 1rem;">Mise en qualité de l'information pour questionnaires ESG (EcoVadis, EthiFinance, VSME...)</li>
         <li style="margin-bottom: 1rem;">Mise en conformité loi Sapin II</li>
         <li style="margin-bottom: 1rem;">Analyse de double matérialité</li>
         <li style="margin-bottom: 1rem;">Mise en qualité de rapports CSRD</li>
         <li style="margin-bottom: 1rem;">
-            <a href="/vsme-guide" style="color: var(--primary); text-decoration: underline; transition: color 0.2s;">
-              Production de rapport VSME
-            </a>
+          <a href="/vsme-guide" style="color: var(--primary); text-decoration: underline; transition: color 0.2s;">
+            Production de rapport VSME
+          </a>
         </li>
         <li style="margin-bottom: 1rem;">Structuration des données ESG : mise en qualité du processus</li>
-        <li style="margin-bottom: 1rem;"><a href="https://ariall.ycompris.com">Sécurisation de communications ESG et élimination des risques greenwashing</a></li>
+        <li style="margin-bottom: 1rem;"><a href="https://ariall.ycompris.com" target="_blank" rel="noopener noreferrer">Sécurisation de communications ESG et élimination des risques greenwashing<svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg></a></li>
         <li style="margin-bottom: 1rem;">Formation de plus de 200 professionnels au reporting extra-financier (pour Afnor compétences)</li>
         <li style="margin-bottom: 1rem;">Contribution à l'audit CSRD et VSME (pour commissaires aux comptes)</li>
         <li style="margin-bottom: 1rem;">Evaluation d'organismes tiers indépendants pour le COFRAC (CSRD)</li>
@@ -157,8 +303,46 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Section 6 – Ancrage -->
-  <section class="section" style="background: var(--light);">
+  <!-- Section Presse & médias (§5.5) -->
+  <section class="section" style="background: var(--light); padding: 5rem 0;">
+    <div class="container" style="max-width: 900px; text-align: left;">
+      <h2 style="font-size: 2.3rem; margin-bottom: 1rem; text-align: center;">Presse &amp; médias</h2>
+      <p style="text-align: center; color: var(--gray); margin-bottom: 2.5rem;">
+        Ycompris et ses travaux dans la presse.
+      </p>
+
+      <ul style="list-style: none; padding: 0; margin: 0 0 2.5rem;">
+        <li style="background: white; padding: 1.5rem 1.8rem; border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid var(--primary);">
+          <p style="margin: 0 0 0.4rem; font-size: 0.9rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.04em;">Ouest-France</p>
+          <a
+            href="https://agence-api.ouest-france.fr/environnement/conseil/conseil-ycompris-aide-les-entreprises-a-detecter-des-allegations-esg-potentiellement-risquees-39bd6051-cfb2-4cad-b56f-bc3efb2b99cb"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Article Ouest-France sur Ycompris (nouvel onglet)"
+            style="font-size: 1.15rem; color: var(--primary); font-weight: 600; text-decoration: none;"
+          >
+            Ycompris aide les entreprises à détecter des allégations ESG potentiellement risquées
+            <svg class="ext-icon" aria-hidden="true" viewBox="0 0 10 10"><path d="M2 2h4v1H3v5h5V5h1v4H2V2zm5 0h1v3h-1V3.7L4.7 7 4 6.3 7.3 3H6V2h1z"/></svg>
+          </a>
+        </li>
+      </ul>
+
+      <aside class="press-contact" style="background: white; padding: 1.8rem; border-radius: var(--radius); border: 1px solid #e2e8f0;">
+        <p style="margin: 0 0 0.8rem; font-weight: 600; color: var(--primary);">Contact presse</p>
+        <p style="margin: 0 0 0.8rem;">
+          Journalistes : pour toute demande d'information, d'interview ou d'accès à une étude complète.
+        </p>
+        <p style="margin: 0;">
+          <a href="mailto:presse@ycompris.com?subject=Demande%20presse%20%E2%80%94%20Ycompris" style="color: var(--primary); font-weight: 600;">presse@ycompris.com</a>
+          &nbsp;·&nbsp;
+          <a href="/contact" style="color: var(--gray);">ou via le formulaire de contact</a>
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Section Ancrage -->
+  <section class="section" style="background: white;">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">
         Ancré en Bretagne, tourné vers le monde
@@ -169,21 +353,15 @@ import MainLayout from '../layouts/MainLayout.astro';
       </p>
 
       <div style="max-width: 900px; margin: 0 auto 3rem;">
-        <img 
-          src="/images/Brest.jpg" 
-          alt="Ancrage breton de Ycompris à Brest – Ouverture internationale et rigueur en Finistère" 
+        <img
+          src="/images/Brest.jpg"
+          alt="Ancrage breton de Ycompris à Brest – Ouverture internationale et rigueur en Finistère"
           loading="lazy"
           width="900"
           height="600"
           class="anchor-image"
           style="max-width: 100%; height: auto; border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0,0,0,0.1); display: block; margin: 0 auto; transition: transform 0.3s ease;"
         />
-
-        <style>
-          .anchor-image:hover {
-            transform: scale(1.03);
-          }
-        </style>
       </div>
 
       <div>
@@ -192,8 +370,8 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Section 7 FAQ -->
-  <section class="section" style="background: white;">
+  <!-- Section FAQ -->
+  <section class="section" style="background: var(--light);">
     <div class="container" style="text-align: center;">
       <h2 style="font-size: 2.5rem; margin-bottom: 3rem;">
         Questions fréquentes
@@ -208,7 +386,6 @@ import MainLayout from '../layouts/MainLayout.astro';
           <summary style="font-weight: bold; cursor: pointer;">Comment transformer la CSRD en levier stratégique ?</summary>
           <p style="margin-top: 1rem; color: var(--gray);">En reliant obligations réglementaires, enjeux financiers, données existantes et attentes des parties prenantes (investisseurs, clients, banques).</p>
         </details>
-        <!-- Répète pour les autres questions de la même façon -->
       </div>
 
       <div style="margin-top: 3rem;">
@@ -217,10 +394,10 @@ import MainLayout from '../layouts/MainLayout.astro';
     </div>
   </section>
 
-  <!-- Section 8 -->
+  <!-- Section CTA final -->
   <section class="section" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; text-align: center; padding: 8rem 0;">
     <div class="container">
-      <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem;">
+      <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; color: white;">
         À votre écoute
       </h2>
       <p style="font-size: 1.4rem; max-width: 800px; margin: 0 auto 3rem;">
@@ -234,3 +411,75 @@ import MainLayout from '../layouts/MainLayout.astro';
   </section>
 
 </MainLayout>
+
+<style>
+  .author-band__grid {
+    display: grid;
+    grid-template-columns: minmax(160px, 220px) 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .author-band__cover img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    display: block;
+  }
+
+  .anchor-image:hover {
+    transform: scale(1.03);
+  }
+
+  .pub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pub-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--primary);
+    text-align: left;
+  }
+
+  .pub-card__tag {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .pub-card__link {
+    display: inline-block;
+    margin-top: 0.6rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .pub-card__link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .author-band__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .author-band__cover {
+      max-width: 200px;
+      margin: 0 auto;
+    }
+  }
+</style>
