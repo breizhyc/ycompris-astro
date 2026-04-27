@@ -1,5 +1,5 @@
 // netlify/functions/gerse-register.mjs
-// Gestion des inscriptions à la formation RSE – GERSE juin 2025
+// Gestion des inscriptions à la formation RSE – GERSE juin 2026
 
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
@@ -8,27 +8,27 @@ import { Resend } from 'resend';
 const SESSIONS = {
   s1: {
     label: 'Mardi 16 juin – 10h00-12h00',
-    dtstart: '20250616T080000Z',
-    dtend:   '20250616T100000Z',
-    dateKey: '20250616',
+    dtstart: '20260616T080000Z',
+    dtend:   '20260616T100000Z',
+    dateKey: '20260616',
   },
   s2: {
     label: 'Mardi 23 juin – 14h00-16h00',
-    dtstart: '20250623T120000Z',
-    dtend:   '20250623T140000Z',
-    dateKey: '20250623',
+    dtstart: '20260623T120000Z',
+    dtend:   '20260623T140000Z',
+    dateKey: '20260623',
   },
   s3: {
     label: 'Vendredi 26 juin – 10h00-12h00',
-    dtstart: '20250626T080000Z',
-    dtend:   '20250626T100000Z',
-    dateKey: '20250626',
+    dtstart: '20260626T080000Z',
+    dtend:   '20260626T100000Z',
+    dateKey: '20260626',
   },
   s4: {
     label: 'Jeudi 2 juillet – 10h00-12h00',
-    dtstart: '20250702T080000Z',
-    dtend:   '20250702T100000Z',
-    dateKey: '20250702',
+    dtstart: '20260702T080000Z',
+    dtend:   '20260702T100000Z',
+    dateKey: '20260702',
   },
 };
 
