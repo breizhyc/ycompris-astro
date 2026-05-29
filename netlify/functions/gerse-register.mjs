@@ -25,10 +25,10 @@ const SESSIONS = {
     dateKey: '20260626',
   },
   s4: {
-    label: 'Jeudi 2 juillet – 10h00-12h00',
-    dtstart: '20260702T080000Z',
-    dtend:   '20260702T100000Z',
-    dateKey: '20260702',
+    label: 'Mardi 30 juin – 10h00-12h00',
+    dtstart: '20260630T080000Z',
+    dtend:   '20260630T100000Z',
+    dateKey: '20260630',
   },
 };
 

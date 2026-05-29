@@ -24,7 +24,7 @@ ALTER TABLE formation_gerse_2606 ENABLE ROW LEVEL SECURITY;
 -- ── Commentaires ─────────────────────────────────────────────────────────────
 COMMENT ON TABLE  formation_gerse_2606              IS 'Inscriptions formation RSE GERSE – juin/juillet 2025';
 COMMENT ON COLUMN formation_gerse_2606.email        IS 'Email professionnel (domaines autorisés : guyotenvironnement.com, guyotenergies.com, ycompris.com)';
-COMMENT ON COLUMN formation_gerse_2606.session_id   IS 's1=16/06 10h, s2=23/06 14h, s3=26/06 10h, s4=02/07 10h';
+COMMENT ON COLUMN formation_gerse_2606.session_id   IS 's1=16/06 10h, s2=23/06 14h, s3=26/06 10h, s4=30/06 10h';
 COMMENT ON COLUMN formation_gerse_2606.registered_at IS 'Horodatage de l inscription (UTC)';
 
 -- ── Requêtes utiles pour consulter les inscriptions ──────────────────────────
